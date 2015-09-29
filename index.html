@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>billings</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/print.css" media="print">
+  <link rel="stylesheet" href="/screen.css" media="screen">
+</head>
+<body>
+  <article role="main" class="main">
+    <h1 class="title">
+      Tax Invoice
+    </h1>
+
+    <div class="cf parties">
+      <aside class="vendor">
+        <p><strong>Hugh Kennedy</strong></p>
+        <p>ABN: 67 440 131 101</p>
+        <p>
+          83 Some Address<br/>
+          Some Suburb NSW 2072<br/>
+          Australia
+        </p>
+        <p>
+          <em>hughskennedy@gmail.com</em><br/>
+          <em>+61 415 433 219</em>
+        </p>
+      </aside>
+
+      <aside class="client">
+        <p>
+          <strong>Payee Name</strong>
+        </p>
+        <p>
+          Company Name<br/>
+          Company Address
+        <p>
+          <em>contact@company.com</em>
+        </p>
+      </aside>
+
+    </div>
+
+    <dl class="meta">
+      <dt>Invoice ID</dt>
+      <dd>{{id}}</dd>
+
+      <dt>Issued</dt>
+      <dd>{{issued}}</dd>
+
+      <dt>Due</dt>
+      <dd>{{due}}</dd>
+    </dl>
+
+    {{#summary}}
+      <section class="summary">
+        {{summary}}
+      </section>
+    {{/summary}}
+
+    <table class="items">
+      <thead>
+        {{#categories}}
+          <th>Category</th>
+        {{/categories}}
+        <th>Description</th>
+        <th>Amount</th>
+      </thead>
+      {{#items}}
+        <tr>
+          <td>{{category}}</td>
+          <td>{{description}}</td>
+          <td>{{amount}}</td>
+        </tr>
+      {{/items}}
+      {{#tax}}
+        <tfoot>
+          <tr>
+            <th colspan="3">Total ex. GST {{#currency}}({{currency}}){{/currency}}: {{total}}</th>
+          </tr>
+          <tr>
+            <th colspan="3">GST {{#currency}}({{currency}}){{/currency}}: {{tax.taxed}}</th>
+          </tr>
+          <tr>
+            <th colspan="3">Balance Due {{#currency}}({{currency}}){{/currency}}: {{tax.total}}</th>
+          </tr>
+        </tfoot>
+      {{/tax}}
+      {{^tax}}
+        <tfoot>
+          <tr>
+            <th colspan="3">
+              Balance Due {{#currency}}({{currency}}){{/currency}}: {{total}}</th>
+          </tr>
+        </tfoot>
+      {{/tax}}
+    </table>
+
+    <section class="extra">
+      <p>Payments can be made by direct bank desposit/transfer to:</p>
+      <figure>
+        Hugh Kennedy<br/>
+        National Australia Bank<br/>
+        BSB: 082-057, ACC: 85-500-5923<br/>
+        ABN: 67440131101
+      </figure>
+
+      <p>If paying internationally:</p>
+      <figure>
+        SWIFT: NATAAU3303M<br/>
+        IBAN: 082057855005923
+      </figure>
+    </section>
+  </article>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "billings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate.js",
+  "scripts": {
+    "start": "node build"
+  },
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^1.0.8-1.2.3",
+    "inline-styles": "^1.0.0",
+    "minstache": "^1.2.0",
+    "mkdirp": "^0.5.0",
+    "multiline": "^0.3.4"
+  }
+}
